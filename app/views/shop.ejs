@@ -15,15 +15,11 @@
 
         <ul>
             <!-- Étape 5 Remplacer cette liste par une bloucle sur la variable `categories`-->
+            <% for(let categorie of categories) {%>
             <li>
-                <a href="/category/1"> Catégorie 1 </a>
+                <a href="/category/<%= categorie.id %>"> Catégorie <%= categorie.name %> </a>
             </li>
-            <li>
-                <a href="/category/2"> Catégorie 2 </a>
-            </li>
-            <li>
-                <a href="/category/3">Catégorie 3</a>
-            </li>
+            <% } %>
         </ul>
     </div>
 
@@ -31,43 +27,17 @@
         <div class="products text-center">
 
             <!-- Remplacer cette liste par une bloucle sur la variable `products`-->
-
+            <% for(let product of products) {%>
             <div class="product">
-                <a href="/product/1">
-                    <img src="img/macbook-pro.png" alt="Nom du produit" />
+                <a href="/product/<%= product.id %>">
+                    <img src="<%= product.image %>" alt="<%= product.title %>" />
                 </a>
-                <a href="/product/1">
-                    <div class="product-name">Nom du Produit</div>
+                <a href="/product/<%= product.id %>">
+                    <div class="product-name"><%= product.title %></div>
                 </a>
-                <div class="product-price">2500€</div>
-            </div>
-
-            <div class="product">
-                <a href="/product/2">
-                    <img
-                        src="img/macbook-pro-laravel.png"
-                        alt="Nom du produit"
-                    />
-                </a>
-                <a href="/product/2">
-                    <div class="product-name">Nom du Produit</div>
-                </a>
-                <div class="product-price">3750€</div>
-            </div>
-
-            <div class="product">
-                <a href="/product/3">
-                    <img
-                        src="img/macbook-pro-laravel.png"
-                        alt="Nom du produit"
-                    />
-                </a>
-                <a href="/product/3">
-                    <div class="product-name">Nom du Produit</div>
-                </a>
-                <div class="product-price">12540€</div>
-            </div>
-
+                <div class="product-price"><%= product.price %></div>
+            </div>     
+            <% } %>
         </div>
     </div>
 </div>

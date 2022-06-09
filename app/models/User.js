@@ -17,10 +17,11 @@ User.init(
             unicode: true,
             unique: true,
         },
-        avatar: {
-            type: DataTypes.TEXT,
-            allowNull: true,
-        },
+        //                WHY ???
+        // avatar: {
+        //     type: DataTypes.TEXT,
+        //     allowNull: true,
+        // },
         password: {
             type: DataTypes.STRING,
             allowNull: false,

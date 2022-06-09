@@ -16,6 +16,13 @@ app.use(
         secret: 'Un secret pour signer les id de sessions',
     })
 );
+app.use((req, res, next) => {
+    // attacher à locals (à la future vue) les infos du user connecté (de la session)
+    if(req.session.user) {
+        res.locals.user = req.session.user;
+    }
+    next();
+});
 
 app.set('view engine', 'ejs');
 app.set('views', './app/views');
