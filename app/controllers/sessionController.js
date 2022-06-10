@@ -30,8 +30,8 @@ const sessionController = {
             // Sélectionner user avec email et inclure le role, si on ne le trouve pas :
             //      on envoie un message d'erreur dans un objet:  {error: `l'utilisateur n'existe pas !`} et on render `login` en lui passant l'erreur
             // Sinon on continue.
-            const  {id}  = user
-            const role = await Role.findByPk(id)
+            const  {role_id}  = user
+            const role = await Role.findByPk(role_id)
 
             // Le mot de passe est il correct ?
 

@@ -35,17 +35,19 @@ const userController = {
             // Hash password with salt
             const hashedPassword = bcrypt.hashSync(password, 12);
             // Attribuer un rôle ici, vous devrez auparavant en sélectionner un depuis la BDD : le role customer.
-            const role = await Role.findOne({where: {name : 'customer'}})
+            const role = await Role.findOne({
+                where: {
+                    name: "customer"
+                }
+            });    
             const newUser = new User({
-                firstname,
-                lastname,
-                email,
-                role : role,
+                name : `${firstname}${lastname}`,
+                email: email,
+                role_id : role.id,
                 password: hashedPassword
             })
-            // sauvegarder user
-            console.log(newUser)
-            await newUser.save()
+            // sauvegarder user    
+             await newUser.save()
             // !! ne pas modifier cette ligne
             res.render('login', {
                 message: 'Vous pouvez maintenant vous connecter !',

@@ -26,9 +26,9 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        role_id: {
-            type: DataTypes.INTEGER,
-        },
+        // role_id: {
+        //     type: DataTypes.INTEGER,
+        // },
     },
     {
         sequelize,
